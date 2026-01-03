@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700");
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,600,700&display=swap");
 @import url("fontawesome-all.min.css");
 
 /*
@@ -100,7 +100,7 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'Open Sans', sans-serif;
+		font-family: 'Inter', sans-serif;
 		line-height: 1.85em;
 		color: #888;
 		font-weight: 300;
@@ -1996,8 +1996,8 @@ input, select, textarea {
 	}
 
 		.wrapper.style1 {
-			background-image: none;
-			background-color: #fff;
+			background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+			color: #fff;
 		}
 
 		.wrapper.style2 {
@@ -2445,3 +2445,149 @@ input, select, textarea {
 					}
 
 	}
+
+/* Modern Updates */
+
+/* CSS Variables for theming */
+:root {
+	--bg-color: #ffffff;
+	--text-color: #333333;
+	--accent-color: #6366f1;
+	--secondary-bg: #f8f9fa;
+	--border-color: #e5e7eb;
+	--gradient-start: #667eea;
+	--gradient-end: #764ba2;
+}
+
+[data-theme="dark"] {
+	--bg-color: #0f172a;
+	--text-color: #f1f5f9;
+	--accent-color: #818cf8;
+	--secondary-bg: #1e293b;
+	--border-color: #334155;
+	--gradient-start: #1e293b;
+	--gradient-end: #0f172a;
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
+#theme-switch {
+	display: none;
+}
+
+.toggle-label {
+	display: inline-block;
+	width: 50px;
+	height: 24px;
+	background-color: var(--border-color);
+	border-radius: 24px;
+	position: relative;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.toggle-slider {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	border-radius: 50%;
+	transition: transform 0.3s;
+}
+
+#theme-switch:checked + .toggle-label {
+	background-color: var(--accent-color);
+}
+
+#theme-switch:checked + .toggle-label .toggle-slider {
+	transform: translateX(26px);
+}
+
+/* Update body background */
+body {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition: background-color 0.3s, color 0.3s;
+}
+
+/* Update nav */
+#nav {
+	background-color: var(--secondary-bg);
+	border-bottom: 1px solid var(--border-color);
+}
+
+#nav a {
+	color: var(--text-color) !important;
+}
+
+#nav a:hover {
+	background-color: var(--accent-color);
+	color: white !important;
+}
+
+/* Update sections */
+.wrapper {
+	background-color: var(--bg-color);
+}
+
+/* Update buttons */
+.button {
+	background-color: var(--accent-color);
+	transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+	transform: translateY(-2px);
+}
+
+/* Add some modern animations */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.wrapper {
+	animation: fadeInUp 0.6s ease-out;
+}
+
+/* Improve typography */
+h1, h2, h3 {
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+p {
+	line-height: 1.6;
+}
+
+/* Add hover effects to portfolio items */
+.box {
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.box:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Update social links */
+.social li a {
+	transition: color 0.3s, transform 0.3s;
+}
+
+.social li a:hover {
+	transform: scale(1.1);
+}

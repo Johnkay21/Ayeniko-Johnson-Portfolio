@@ -31,4 +31,25 @@
 			offset: function() { return $nav.height(); }
 		});
 
+	// Dark mode toggle
+	const themeSwitch = document.getElementById('theme-switch');
+	const currentTheme = localStorage.getItem('theme');
+
+	if (currentTheme) {
+		document.documentElement.setAttribute('data-theme', currentTheme);
+		if (currentTheme === 'dark') {
+			themeSwitch.checked = true;
+		}
+	}
+
+	themeSwitch.addEventListener('change', function() {
+		if (this.checked) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+			localStorage.setItem('theme', 'dark');
+		} else {
+			document.documentElement.removeAttribute('data-theme');
+			localStorage.setItem('theme', 'light');
+		}
+	});
+
 })(jQuery);
